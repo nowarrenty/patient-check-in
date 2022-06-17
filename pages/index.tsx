@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { config } from "../config";
 import welcomeSVG from "../public/welcome.svg";
 
 const Home: NextPage = () => (
@@ -15,7 +14,7 @@ const Home: NextPage = () => (
           Welcome to
         </h1>
         <h1 className=" mx-6 font-bold text-3xl text-center">
-          {config.hostpitalName}
+          {"Hospital X"}
         </h1>
         <p className="self-center mt-6 mx-12 text-center">
           Please complete this short form to see the next available doctor
