@@ -13,10 +13,8 @@ const Home: NextPage = () => (
         <h1 className="mt-[20px] mx-6 font-bold text-3xl text-center">
           Welcome to
         </h1>
-        <h1 className=" mx-6 font-bold text-3xl text-center">
-          {"Hospital X"}
-        </h1>
-        <p className="self-center mt-6 mx-12 text-center">
+        <h1 className=" mx-6 font-bold text-3xl text-center">{"Hospital X"}</h1>
+        <p className="self-center mt-10 mx-12 text-center">
           Please complete this short form to see the next available doctor
         </p>
       </div>
