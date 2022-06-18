@@ -16,3 +16,7 @@ export type RadioItemProps = {
   label: string;
   name: string;
 };
+
+export type NextButtonProps = {
+  tailwind?: string;
+};
