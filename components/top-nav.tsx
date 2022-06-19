@@ -1,14 +1,19 @@
-import { TopNavProps } from "../../types";
+import { TopNavProps } from "../types";
 import Image from "next/image";
 import { MouseEventHandler } from "react";
-import backImage from "../../public/back.svg";
+import backImage from "../public/back.svg";
+import { useRouter } from "next/router";
 
 const TopNav = ({ setFormStep, numSteps, formStep, tailwind }: TopNavProps) => {
+  const router = useRouter();
+  // Add one to formStep so that math functions dont use 0 for calculations
+  const step = formStep + 1;
   const onClick: MouseEventHandler = (e) => {
     setFormStep((step) => (step === 0 ? step : step - 1));
+    if (step === 1) router.push("/");
   };
 
-  const percentage = `${(formStep / numSteps) * 100}%`;
+  const percentage = `${(step / numSteps) * 100}%`;
   const style = { width: percentage };
 
   return (
@@ -24,3 +29,8 @@ const TopNav = ({ setFormStep, numSteps, formStep, tailwind }: TopNavProps) => {
 };
 
 export default TopNav;
+
+/**
+ * TODO
+ * 1. Expand back button padding so that there is more space to register clicks
+ */

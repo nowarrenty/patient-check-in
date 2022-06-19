@@ -6,6 +6,7 @@ import { VisitorForm } from "../components/forms/visitor-form";
 import { NextButton } from "../components/next-button";
 
 const Form: NextPage = () => {
+  const [isNextButtonActive, toggleNextButton] = useState(false);
   const [formStep, setFormStep] = useState(0);
   const forms = [<VisitorForm key={0} />, <PersonalDetailsForm key={1} />];
   return (

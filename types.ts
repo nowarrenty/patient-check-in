@@ -6,7 +6,7 @@ export type VisitorFormProps = {
 };
 
 export type TopNavProps = {
-  setFormStep: Dispatch<SetStateAction<number>>;
+  setFormStep: SetFormStep;
   formStep: number;
   numSteps: number;
   tailwind?: string;
