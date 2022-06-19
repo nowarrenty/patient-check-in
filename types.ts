@@ -15,6 +15,7 @@ export type TopNavProps = {
 export type RadioItemProps = {
   label: string;
   name: string;
+  registration: UseFormRegisterReturn<string>;
 };
 
 export type NextButtonProps = {
