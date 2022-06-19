@@ -19,4 +19,6 @@ export type RadioItemProps = {
 
 export type NextButtonProps = {
   tailwind?: string;
+  formStep: number;
+  isNextButtonActive: boolean;
 };

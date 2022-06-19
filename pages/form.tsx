@@ -18,7 +18,11 @@ const Form: NextPage = () => {
       />
       {forms[formStep]}
       <div className="grow place-self-end"></div>
-      <NextButton tailwind="mb-10"/>
+      <NextButton
+        tailwind="mb-10"
+        formStep={formStep}
+        isNextButtonActive={isNextButtonActive}
+      />
     </div>
   );
 };
