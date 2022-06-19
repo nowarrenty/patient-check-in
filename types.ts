@@ -1,9 +1,36 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
+import {
+  type FieldValue,
+  type FieldValues,
+  type FormState,
+  type UseFormGetValues,
+  type UseFormHandleSubmit,
+  type UseFormRegister,
+  type UseFormRegisterReturn,
+  type UseFormWatch,
+} from "react-hook-form";
 
-export type VisitorFormProps = {
-  personVisitingOptions?: Set<string>;
+type Register = UseFormRegister<FieldValues>;
+type SetFormStep = Dispatch<SetStateAction<number>>;
+
+interface FormProps {
+  register: Register;
+  handleSubmit: UseFormHandleSubmit<FieldValues>;
+  setFormStep: SetFormStep;
+  numForms: number;
   tailwind?: string;
-};
+  id: string;
+  formStep: number;
+  formState?: FormState<FieldValues>;
+  watch: UseFormWatch<any>;
+  getValues?: UseFormGetValues<any>;
+  toggleNextButton: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface VisitForFormProps extends FormProps {
+  tailwind?: string;
+  register: Register;
+}
 
 export type TopNavProps = {
   setFormStep: SetFormStep;
