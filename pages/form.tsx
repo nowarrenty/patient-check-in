@@ -5,6 +5,7 @@ import TopNav from "../components/top-nav";
 import { VisitForForm } from "../components/forms/visit-for-form";
 import { NextButton } from "../components/next-button";
 import { useForm } from "react-hook-form";
+import { ComplaintForm } from "../components/forms/complaint-form";
 
 const Form: NextPage = () => {
   const [formStep, setFormStep] = useState(0);
@@ -38,7 +39,19 @@ const Form: NextPage = () => {
     mode: "onChange",
   });
 
-  const numForms = 2;
+  const {
+    register: registerComplaint,
+    handleSubmit: handleSubmitComplaint,
+    formState: formStateComplaint,
+    watch: watchComplaint,
+    getValues: getValuesComplaint,
+    control: controlComplaint,
+  } = useForm({
+    defaultValues: { reasons: [] },
+    mode: "onChange",
+  });
+
+  const numForms = 3;
 
   const forms = [
     {
@@ -59,6 +72,23 @@ const Form: NextPage = () => {
     },
     {
       form: (
+        <ComplaintForm
+          register={registerComplaint}
+          control={controlComplaint}
+          handleSubmit={handleSubmitComplaint}
+          setFormStep={setFormStep}
+          formStep={formStep}
+          numForms={numForms}
+          formState={formStateComplaint}
+          watch={watchComplaint}
+          id={"1"}
+          key={1}
+        />
+      ),
+      isValid: formStateComplaint.isValid,
+    },
+    {
+      form: (
         <PersonalDetailsForm
           register={registerPersonalDetailsForm}
           handleSubmit={handleSubmitPersonalDetailsForm}
@@ -68,13 +98,14 @@ const Form: NextPage = () => {
           formState={formStatePersonalDetailsForm}
           watch={watchPersonalDetailsForm}
           getValues={getValuesPersonalDetailsForm}
-          id={"1"}
-          key={1}
+          id={"2"}
+          key={2}
         />
       ),
       isValid: formStatePersonalDetailsForm.isValid,
     },
   ];
+  console.log(formStateComplaint.isValid);
   return (
     <div className="flex flex-col mx-4 h-full">
       <TopNav

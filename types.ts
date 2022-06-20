@@ -1,5 +1,6 @@
 import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
 import {
+  Control,
   type FieldValue,
   type FieldValues,
   type FormState,
@@ -29,6 +30,10 @@ export interface FormProps {
 export interface VisitForFormProps extends FormProps {
   tailwind?: string;
   register: Register;
+}
+
+export interface ComplaintProps extends FormProps {
+  control: Control<any, any>;
 }
 
 export type TopNavProps = {
