@@ -6,9 +6,10 @@ import { VisitForForm } from "../components/forms/visit-for-form";
 import { NextButton } from "../components/next-button";
 import { useForm } from "react-hook-form";
 import { ComplaintForm } from "../components/forms/complaint-form";
+import { IllnessForm } from "../components/forms/illness-form";
 
 const Form: NextPage = () => {
-  const [formStep, setFormStep] = useState(0);
+  const [formStep, setFormStep] = useState(3);
 
   const {
     register: registerVisitForForm,
@@ -23,11 +24,11 @@ const Form: NextPage = () => {
   });
 
   const {
-    register: registerPersonalDetailsForm,
-    handleSubmit: handleSubmitPersonalDetailsForm,
-    formState: formStatePersonalDetailsForm,
+    register: registerPersonalDetails,
+    handleSubmit: handleSubmitPersonalDetails,
+    formState: formStatePersonalDetails,
     watch: watchPersonalDetailsForm,
-    getValues: getValuesPersonalDetailsForm,
+    getValues: getValuesPersonalDetails,
   } = useForm({
     defaultValues: {
       "First Name": "",
@@ -51,7 +52,15 @@ const Form: NextPage = () => {
     mode: "onChange",
   });
 
-  const numForms = 3;
+  const {
+    register: registerIllness,
+    handleSubmit: handleSubmitIllness,
+    formState: formStateIllness,
+    watch: watchIllness,
+    getValues: getValuesIllness,
+  } = useForm({ defaultValues: { Illnesses: [] }, mode: "onChange" });
+
+  const numForms = 4;
 
   const forms = [
     {
@@ -90,19 +99,36 @@ const Form: NextPage = () => {
     {
       form: (
         <PersonalDetailsForm
-          register={registerPersonalDetailsForm}
-          handleSubmit={handleSubmitPersonalDetailsForm}
+          register={registerPersonalDetails}
+          handleSubmit={handleSubmitPersonalDetails}
           setFormStep={setFormStep}
           formStep={formStep}
           numForms={numForms}
-          formState={formStatePersonalDetailsForm}
+          formState={formStatePersonalDetails}
           watch={watchPersonalDetailsForm}
-          getValues={getValuesPersonalDetailsForm}
+          getValues={getValuesPersonalDetails}
           id={"2"}
           key={2}
         />
       ),
-      isValid: formStatePersonalDetailsForm.isValid,
+      isValid: formStatePersonalDetails.isValid,
+    },
+    {
+      form: (
+        <IllnessForm
+          register={registerIllness}
+          handleSubmit={handleSubmitIllness}
+          setFormStep={setFormStep}
+          formStep={formStep}
+          numForms={numForms}
+          formState={formStateIllness}
+          watch={watchIllness}
+          getValues={getValuesIllness}
+          id={"3"}
+          key={3}
+        />
+      ),
+      isValid: formStateIllness.isValid,
     },
   ];
   console.log(formStateComplaint.isValid);
