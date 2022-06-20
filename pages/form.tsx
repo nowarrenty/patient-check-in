@@ -9,7 +9,7 @@ import { ComplaintForm } from "../components/forms/complaint-form";
 import { IllnessForm } from "../components/forms/illness-form";
 
 const Form: NextPage = () => {
-  const [formStep, setFormStep] = useState(3);
+  const [formStep, setFormStep] = useState(0);
 
   const {
     register: registerVisitForForm,
