@@ -19,7 +19,7 @@ const Home: NextPage = () => (
         </p>
       </div>
     </div>
-    <div className="">
+    <div>
       <Link href={"/form"} className="">
         <a className="bg-blue-700 text-white font-bold mx-4 mb-7  mt-3 py-2 rounded-full text-center block">
           Get Started
