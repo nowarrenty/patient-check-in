@@ -6,6 +6,8 @@ const PersonalDetailsForm = ({
   handleSubmit,
   formState,
   id,
+  setFormStep,
+  numForms,
 }: FormProps) => {
   useEffect(() => {
     console.log(JSON.stringify(formState?.isValid));
@@ -19,7 +21,9 @@ const PersonalDetailsForm = ({
     <form
       id={id.toString()}
       className="mb-5"
-      onSubmit={handleSubmit((e) => {})}
+      onSubmit={handleSubmit((e) => {
+        setFormStep((step) => (step + 1 >= numForms ? step : step + 1));
+      })}
     >
       <h1 className="text-3xl mt-6 font-semibold">Add your personal details</h1>
       <div className="space-y-5 mt-10">
