@@ -21,7 +21,7 @@ const ComplaintForm = ({
       <h1 className="text-3xl mt-6 font-semibold">
         {`What's the reason for your visit today?`}
       </h1>
-      <p className="text-xs mt-4">Select all that apply.</p>
+      <p className="text-xs mt-6">Select all that apply.</p>
       <CheckList
         options={[
           "Stomach pain, diarrhea or digestive issues",
@@ -34,6 +34,7 @@ const ComplaintForm = ({
           "Other",
         ]}
         name="reasons"
+        required={true}
         control={control}
         tailwind="mt-10"
       />
