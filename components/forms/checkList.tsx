@@ -4,8 +4,18 @@ import { useController, Control } from "react-hook-form";
 import { useState } from "react";
 import { CheckListProps } from "../../types";
 
-const CheckList = ({ options, control, name, tailwind }: CheckListProps) => {
-  const { field } = useController({ control, name, rules: { required: true } });
+const CheckList = ({
+  options,
+  control,
+  name,
+  tailwind,
+  required,
+}: CheckListProps) => {
+  const { field } = useController({
+    control,
+    name,
+    rules: { required: required || false },
+  });
   const [value, setValue] = useState(field.value || []);
   const [checkedItems, setCheckedItems] = useState(
     options.map((option) => value.includes(option))

@@ -60,4 +60,5 @@ export type CheckListProps = {
   name: string;
   control: Control;
   tailwind?: string;
+  required?: boolean
 };
