@@ -3,10 +3,8 @@ import { FormProps } from "../../types";
 
 const PersonalDetailsForm = ({
   register,
-  watch,
   handleSubmit,
   formState,
-  getValues,
   id,
 }: FormProps) => {
   useEffect(() => {
@@ -37,7 +35,7 @@ const PersonalDetailsForm = ({
         <label className={labelCSS}>
           Last Name
           <input
-            {...register("Last Name")}
+            {...register("Last Name", { required: true })}
             type={"text"}
             name={"Last Name"}
             className={inputCSS}
@@ -46,7 +44,7 @@ const PersonalDetailsForm = ({
         <label className={labelCSS}>
           Date of Birth
           <input
-            {...register("Date of Birth")}
+            {...register("Date of Birth", { required: true })}
             type={"text"}
             name={"Date of Birth"}
             className={inputCSS}
@@ -55,7 +53,7 @@ const PersonalDetailsForm = ({
         <label className={labelCSS}>
           Phone Number
           <input
-            {...register("Phone Number")}
+            {...register("Phone Number", { required: true })}
             type={"tel"}
             name={"Phone Number"}
             className={inputCSS}
@@ -67,7 +65,7 @@ const PersonalDetailsForm = ({
             <label className={radioLabelCSS}>
               Female
               <input
-                {...register("Sex",{required: true})}
+                {...register("Sex", { required: true })}
                 name={"Sex"}
                 value={"Female"}
                 className={radioCSS}
