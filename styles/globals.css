@@ -4,6 +4,7 @@
 
 html {
   @apply h-full bg-gray-100;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
