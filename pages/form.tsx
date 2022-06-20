@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PersonalDetailsForm } from "../components/forms/personal-details-form";
 import TopNav from "../components/top-nav";
 import { VisitForForm } from "../components/forms/visit-for-form";
@@ -7,7 +7,6 @@ import { NextButton } from "../components/next-button";
 import { useForm } from "react-hook-form";
 
 const Form: NextPage = () => {
-  const [isNextButtonActive, toggleNextButton] = useState(false);
   const [formStep, setFormStep] = useState(0);
 
   const {
@@ -42,35 +41,40 @@ const Form: NextPage = () => {
   const numForms = 2;
 
   const forms = [
-    <VisitForForm
-      register={registerVisitForForm}
-      handleSubmit={handleSubmitVisitForForm}
-      setFormStep={setFormStep}
-      formStep={formStep}
-      numForms={numForms}
-      formState={formStateVisitForForm}
-      watch={watchVisitForForm}
-      toggleNextButton={toggleNextButton}
-      getValues={getValuesVisitForForm}
-      id={"0"}
-      key={0}
-    />,
-
-    <PersonalDetailsForm
-      register={registerPersonalDetailsForm}
-      handleSubmit={handleSubmitPersonalDetailsForm}
-      setFormStep={setFormStep}
-      formStep={formStep}
-      numForms={numForms}
-      formState={formStatePersonalDetailsForm}
-      watch={watchPersonalDetailsForm}
-      toggleNextButton={toggleNextButton}
-      getValues={getValuesPersonalDetailsForm}
-      id={"1"}
-      key={1}
-    />,
+    {
+      form: (
+        <VisitForForm
+          register={registerVisitForForm}
+          handleSubmit={handleSubmitVisitForForm}
+          setFormStep={setFormStep}
+          formStep={formStep}
+          numForms={numForms}
+          formState={formStateVisitForForm}
+          watch={watchVisitForForm}
+          id={"0"}
+          key={0}
+        />
+      ),
+      isValid: formStateVisitForForm.isValid,
+    },
+    {
+      form: (
+        <PersonalDetailsForm
+          register={registerPersonalDetailsForm}
+          handleSubmit={handleSubmitPersonalDetailsForm}
+          setFormStep={setFormStep}
+          formStep={formStep}
+          numForms={numForms}
+          formState={formStatePersonalDetailsForm}
+          watch={watchPersonalDetailsForm}
+          getValues={getValuesPersonalDetailsForm}
+          id={"1"}
+          key={1}
+        />
+      ),
+      isValid: formStatePersonalDetailsForm.isValid,
+    },
   ];
-
   return (
     <div className="flex flex-col mx-4 h-full">
       <TopNav
@@ -79,13 +83,13 @@ const Form: NextPage = () => {
         formStep={formStep}
         tailwind="mt-4"
       />
-      {forms[formStep]}
+      {forms[formStep].form}
       <div className="flex grow"></div>
       <div>
         <NextButton
           tailwind="mb-7 mt-7"
           formStep={formStep}
-          isNextButtonActive={isNextButtonActive}
+          isNextButtonActive={forms[formStep].isValid}
         />
       </div>
     </div>

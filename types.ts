@@ -24,7 +24,6 @@ export interface FormProps {
   formState?: FormState<FieldValues>;
   watch: UseFormWatch<any>;
   getValues?: UseFormGetValues<any>;
-  toggleNextButton: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface VisitForFormProps extends FormProps {

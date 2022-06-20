@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { VisitForFormProps } from "../../types";
 import { RadioItem } from "../radio";
 
@@ -10,14 +9,7 @@ const VisitForForm = ({
   handleSubmit,
   numForms,
   watch,
-  toggleNextButton,
 }: VisitForFormProps) => {
-  useEffect(() => {
-    const { visitFor } = watch();
-    if (visitFor)
-      toggleNextButton((isActive) => (isActive ? isActive : !isActive));
-  });
-
   const options = new Set<string>()
     .add("Myself")
     .add("My child")
@@ -31,7 +23,7 @@ const VisitForForm = ({
       label={option}
       key={index}
       name={name}
-      registration={register(name)}
+      registration={register(name, { required: true })}
     />
   ));
 
