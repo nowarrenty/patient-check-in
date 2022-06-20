@@ -13,7 +13,7 @@ import {
 type Register = UseFormRegister<FieldValues>;
 type SetFormStep = Dispatch<SetStateAction<number>>;
 
-interface FormProps {
+export interface FormProps {
   register: Register;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   setFormStep: SetFormStep;

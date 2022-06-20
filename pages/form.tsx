@@ -18,12 +18,28 @@ const Form: NextPage = () => {
     getValues: getValuesVisitForForm,
     getFieldState,
   } = useForm({
-    defaultValues: { visitFor: "Myself" },
-    // reValidateMode: "onChange",
-    // mode: "onChange",
+    defaultValues: { visitFor: "" },
+    mode: "onChange",
   });
 
-  const numForms = 1;
+  const {
+    register: registerPersonalDetailsForm,
+    handleSubmit: handleSubmitPersonalDetailsForm,
+    formState: formStatePersonalDetailsForm,
+    watch: watchPersonalDetailsForm,
+    getValues: getValuesPersonalDetailsForm,
+  } = useForm({
+    defaultValues: {
+      "First Name": "",
+      "Last Name": "",
+      "Date of Birth": "",
+      "Phone Number": "",
+      Sex: "",
+    },
+    mode: "onChange",
+  });
+
+  const numForms = 2;
 
   const forms = [
     <VisitForForm
@@ -40,7 +56,19 @@ const Form: NextPage = () => {
       key={0}
     />,
 
-    // <PersonalDetailsForm key={1} />,
+    <PersonalDetailsForm
+      register={registerPersonalDetailsForm}
+      handleSubmit={handleSubmitPersonalDetailsForm}
+      setFormStep={setFormStep}
+      formStep={formStep}
+      numForms={numForms}
+      formState={formStatePersonalDetailsForm}
+      watch={watchPersonalDetailsForm}
+      toggleNextButton={toggleNextButton}
+      getValues={getValuesPersonalDetailsForm}
+      id={"1"}
+      key={1}
+    />,
   ];
 
   return (
