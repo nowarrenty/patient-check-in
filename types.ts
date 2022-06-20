@@ -49,3 +49,10 @@ export type NextButtonProps = {
   formStep: number;
   isNextButtonActive: boolean;
 };
+
+export type CheckListProps = {
+  options: string[];
+  name: string;
+  control: Control;
+  tailwind?: string;
+};
