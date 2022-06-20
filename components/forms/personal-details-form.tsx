@@ -51,6 +51,7 @@ const PersonalDetailsForm = ({
             {...register("Date of Birth", { required: true })}
             type={"text"}
             name={"Date of Birth"}
+            placeholder={`ddmmyyyy`}
             className={inputCSS}
           ></input>
         </label>
@@ -60,6 +61,7 @@ const PersonalDetailsForm = ({
             {...register("Phone Number", { required: true })}
             type={"tel"}
             name={"Phone Number"}
+            placeholder={`876123456`}
             className={inputCSS}
           ></input>
         </label>
