@@ -52,12 +52,14 @@ const Form: NextPage = () => {
         tailwind="mt-4"
       />
       {forms[formStep]}
-      <div className="grow place-self-end"></div>
-      <NextButton
-        tailwind="mb-10"
-        formStep={formStep}
-        isNextButtonActive={isNextButtonActive}
-      />
+      <div className="flex grow"></div>
+      <div>
+        <NextButton
+          tailwind="mb-7 mt-7"
+          formStep={formStep}
+          isNextButtonActive={isNextButtonActive}
+        />
+      </div>
     </div>
   );
 };

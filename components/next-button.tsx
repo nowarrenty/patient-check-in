@@ -12,7 +12,7 @@ const NextButton = ({
     <button
       disabled={isNextButtonActive ? false : true}
       form={formStep.toString()}
-      className={`flex justify-center items-center ${buttonColor} h-10 
+      className={`flex shrink-0 justify-center items-center ${buttonColor} h-10 
       text-white rounded-full ml-auto px-6
       ${tailwind || ""}`}
     >
