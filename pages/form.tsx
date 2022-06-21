@@ -67,13 +67,8 @@ const Form: NextPage = () => {
       form: (
         <VisitForForm
           register={registerVisitForForm}
-          handleSubmit={handleSubmitVisitForForm}
-          setFormStep={setFormStep}
-          formStep={formStep}
-          numForms={numForms}
           formState={formStateVisitForForm}
           watch={watchVisitForForm}
-          id={"0"}
           key={0}
         />
       ),
@@ -84,13 +79,8 @@ const Form: NextPage = () => {
         <ComplaintForm
           register={registerComplaint}
           control={controlComplaint}
-          handleSubmit={handleSubmitComplaint}
-          setFormStep={setFormStep}
-          formStep={formStep}
-          numForms={numForms}
           formState={formStateComplaint}
           watch={watchComplaint}
-          id={"1"}
           key={1}
         />
       ),
@@ -100,14 +90,9 @@ const Form: NextPage = () => {
       form: (
         <PersonalDetailsForm
           register={registerPersonalDetails}
-          handleSubmit={handleSubmitPersonalDetails}
-          setFormStep={setFormStep}
-          formStep={formStep}
-          numForms={numForms}
           formState={formStatePersonalDetails}
           watch={watchPersonalDetailsForm}
           getValues={getValuesPersonalDetails}
-          id={"2"}
           key={2}
         />
       ),
@@ -117,14 +102,9 @@ const Form: NextPage = () => {
       form: (
         <IllnessForm
           register={registerIllness}
-          handleSubmit={handleSubmitIllness}
-          setFormStep={setFormStep}
-          formStep={formStep}
-          numForms={numForms}
           formState={formStateIllness}
           watch={watchIllness}
           getValues={getValuesIllness}
-          id={"3"}
           key={3}
         />
       ),
@@ -144,7 +124,8 @@ const Form: NextPage = () => {
       <div>
         <NextButton
           tailwind="mb-7 mt-7"
-          formStep={formStep}
+          setFormStep={setFormStep}
+          numForms={numForms}
           isNextButtonActive={forms[formStep].isValid}
         />
       </div>

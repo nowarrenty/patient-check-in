@@ -1,15 +1,7 @@
 import { VisitForFormProps } from "../../types";
 import { RadioItem } from "../radio";
 
-const VisitForForm = ({
-  tailwind,
-  register,
-  id,
-  setFormStep,
-  handleSubmit,
-  numForms,
-  watch,
-}: VisitForFormProps) => {
+const VisitForForm = ({ tailwind, register, watch }: VisitForFormProps) => {
   const options = new Set<string>()
     .add("Myself")
     .add("My child")
@@ -28,13 +20,7 @@ const VisitForForm = ({
   ));
 
   return (
-    <form
-      id={id}
-      className={`${tailwind || ""}`}
-      onSubmit={handleSubmit((e) => {
-        setFormStep((step) => (step + 1 >= numForms ? step : step + 1));
-      })}
-    >
+    <form>
       <h1 className="text-3xl mt-6 font-semibold">Who is this visit for?</h1>
       <div className="space-y-2 mt-10">{radioItems}</div>
     </form>

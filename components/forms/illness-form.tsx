@@ -1,18 +1,12 @@
 import { FormProps } from "../../types";
 
 export function IllnessForm({
-  handleSubmit,
   register,
-  setFormStep,
   tailwind,
-  numForms,
 }: FormProps) {
   return (
     <form
       className="flex flex-col"
-      onSubmit={handleSubmit((e) => {
-        setFormStep((step) => (step + 1 >= numForms ? step : step + 1));
-      })}
     >
       <h1 className="text-3xl mt-6 font-semibold">
         {`Do you have any of theses?`}

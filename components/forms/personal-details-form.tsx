@@ -3,11 +3,7 @@ import { FormProps } from "../../types";
 
 const PersonalDetailsForm = ({
   register,
-  handleSubmit,
   formState: { errors },
-  id,
-  setFormStep,
-  numForms,
 }: FormProps) => {
   const inputCSS =
     "mt-1 text-base bg-white border border-gray-300 rounded-lg h-[50px] indent-4";
@@ -17,11 +13,7 @@ const PersonalDetailsForm = ({
   const pErrorCSS = `text-sm text-red-600`;
   return (
     <form
-      id={id.toString()}
       className="mb-5"
-      onSubmit={handleSubmit((e) => {
-        setFormStep((step) => (step + 1 >= numForms ? step : step + 1));
-      })}
     >
       <h1 className="text-3xl mt-6 font-semibold">Add your personal details</h1>
       <div className="space-y-5 mt-10">

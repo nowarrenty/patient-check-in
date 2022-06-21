@@ -16,14 +16,9 @@ type SetFormStep = Dispatch<SetStateAction<number>>;
 
 export interface FormProps {
   register: Register;
-  handleSubmit: UseFormHandleSubmit<FieldValues>;
-  setFormStep: SetFormStep;
-  numForms: number;
   tailwind?: string;
-  id: string;
-  formStep: number;
   formState: FormState<FieldValues>;
-  watch: UseFormWatch<any>;
+  watch?: UseFormWatch<any>;
   getValues?: UseFormGetValues<any>;
 }
 
@@ -51,8 +46,9 @@ export type RadioItemProps = {
 
 export type NextButtonProps = {
   tailwind?: string;
-  formStep: number;
   isNextButtonActive: boolean;
+  setFormStep: SetFormStep;
+  numForms: number;
 };
 
 export type CheckListProps = {
@@ -60,5 +56,5 @@ export type CheckListProps = {
   name: string;
   control: Control;
   tailwind?: string;
-  required?: boolean
+  required?: boolean;
 };

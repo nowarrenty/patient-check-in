@@ -3,18 +3,9 @@ import { CheckList } from "../checkList";
 
 const ComplaintForm = ({
   control,
-  watch,
-  id,
-  handleSubmit,
-  setFormStep,
-  numForms,
 }: ComplaintProps) => {
   return (
     <form
-      id={id}
-      onSubmit={handleSubmit((e) => {
-        setFormStep((step) => (step + 1 >= numForms ? step : step + 1));
-      })}
       className="flex flex-col"
     >
       <h1 className="text-3xl mt-6 font-semibold">
