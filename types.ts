@@ -22,7 +22,7 @@ export interface FormProps {
   tailwind?: string;
   id: string;
   formStep: number;
-  formState?: FormState<FieldValues>;
+  formState: FormState<FieldValues>;
   watch: UseFormWatch<any>;
   getValues?: UseFormGetValues<any>;
 }
