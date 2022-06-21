@@ -13,11 +13,9 @@ const Form: NextPage = () => {
 
   const {
     register: registerVisitForForm,
-    handleSubmit: handleSubmitVisitForForm,
     formState: formStateVisitForForm,
     watch: watchVisitForForm,
     getValues: getValuesVisitForForm,
-    getFieldState,
   } = useForm({
     defaultValues: { visitFor: "" },
     mode: "onChange",
@@ -25,7 +23,6 @@ const Form: NextPage = () => {
 
   const {
     register: registerPersonalDetails,
-    handleSubmit: handleSubmitPersonalDetails,
     formState: formStatePersonalDetails,
     watch: watchPersonalDetailsForm,
     getValues: getValuesPersonalDetails,
@@ -42,7 +39,6 @@ const Form: NextPage = () => {
 
   const {
     register: registerComplaint,
-    handleSubmit: handleSubmitComplaint,
     formState: formStateComplaint,
     watch: watchComplaint,
     getValues: getValuesComplaint,
@@ -54,15 +50,12 @@ const Form: NextPage = () => {
 
   const {
     register: registerIllness,
-    handleSubmit: handleSubmitIllness,
     formState: formStateIllness,
     watch: watchIllness,
     getValues: getValuesIllness,
   } = useForm({ defaultValues: { Illnesses: [] }, mode: "onChange" });
 
-  const numForms = 4;
-
-  const forms = [
+  const formData = [
     {
       form: (
         <VisitForForm
@@ -73,6 +66,8 @@ const Form: NextPage = () => {
         />
       ),
       isValid: formStateVisitForForm.isValid,
+      isDirty: formStateVisitForForm.isDirty,
+      getValues: getValuesVisitForForm,
     },
     {
       form: (
@@ -85,6 +80,8 @@ const Form: NextPage = () => {
         />
       ),
       isValid: formStateComplaint.isValid,
+      isDirty: formStateComplaint.isDirty,
+      getValues: getValuesComplaint,
     },
     {
       form: (
@@ -97,6 +94,8 @@ const Form: NextPage = () => {
         />
       ),
       isValid: formStatePersonalDetails.isValid,
+      isDirty: formStatePersonalDetails.isDirty,
+      getValues: getValuesPersonalDetails,
     },
     {
       form: (
@@ -109,24 +108,33 @@ const Form: NextPage = () => {
         />
       ),
       isValid: formStateIllness.isValid,
+      isDirty: formStateIllness.isDirty,
+      getValues: getValuesIllness,
     },
   ];
+
+  const getValueFns = formData.map(({ getValues }) => getValues);
+  const isValidMarkers = formData.map(({ isValid }) => isValid);
+
   return (
     <div className="flex flex-col mx-4 h-full">
       <TopNav
         setFormStep={setFormStep}
-        numSteps={forms.length}
+        numSteps={formData.length}
         formStep={formStep}
         tailwind="mt-4"
       />
-      {forms[formStep].form}
+      {formData[formStep].form}
       <div className="flex grow"></div>
       <div>
         <NextButton
           tailwind="mb-7 mt-7"
+          formStep={formStep}
           setFormStep={setFormStep}
-          numForms={numForms}
-          isNextButtonActive={forms[formStep].isValid}
+          numForms={formData.length}
+          isNextButtonActive={formData[formStep].isValid}
+          getValueFns={getValueFns}
+          isValidMarkers={isValidMarkers}
         />
       </div>
     </div>

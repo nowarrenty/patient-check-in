@@ -1,11 +1,9 @@
-import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import {
   Control,
-  type FieldValue,
   type FieldValues,
   type FormState,
   type UseFormGetValues,
-  type UseFormHandleSubmit,
   type UseFormRegister,
   type UseFormRegisterReturn,
   type UseFormWatch,
@@ -49,6 +47,9 @@ export type NextButtonProps = {
   isNextButtonActive: boolean;
   setFormStep: SetFormStep;
   numForms: number;
+  formStep: number;
+  getValueFns: any[];
+  isValidMarkers: boolean[]
 };
 
 export type CheckListProps = {
