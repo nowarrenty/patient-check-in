@@ -4,7 +4,7 @@ import { FormProps } from "../../types";
 const PersonalDetailsForm = ({
   register,
   handleSubmit,
-  formState,
+  formState: { errors },
   id,
   setFormStep,
   numForms,
@@ -14,6 +14,7 @@ const PersonalDetailsForm = ({
   const labelCSS = "grid text-x";
   const radioLabelCSS = `grid grid-cols-2 items-center bg-white border border-gray-300 rounded-lg h-12 indent-4 `;
   const radioCSS = `w-4 h-4 justify-self-end mr-4`;
+  const pErrorCSS = `text-sm text-red-600`;
   return (
     <form
       id={id.toString()}
@@ -27,40 +28,64 @@ const PersonalDetailsForm = ({
         <label className={labelCSS}>
           First Name
           <input
-            {...register("First Name", { required: true })}
+            {...register("First Name", { required: "First name is required." })}
             type={"text"}
             name={"First Name"}
-            className={inputCSS}
+            className={`${inputCSS} ${
+              errors["First Name"] ? " border-red-600" : ""
+            }`}
           ></input>
+          {errors["First Name"] && (
+            <p className={pErrorCSS}>{errors["First Name"].message}</p>
+          )}
         </label>
         <label className={labelCSS}>
           Last Name
           <input
-            {...register("Last Name", { required: true })}
+            {...register("Last Name", { required: "Last name is required." })}
             type={"text"}
             name={"Last Name"}
-            className={inputCSS}
+            className={`${inputCSS} ${
+              errors["Last Name"] ? " border-red-600" : ""
+            }`}
           ></input>
+          {errors["Last Name"] && (
+            <p className={pErrorCSS}>{errors["Last Name"].message}</p>
+          )}
         </label>
         <label className={labelCSS}>
           Date of Birth
           <input
-            {...register("Date of Birth", { required: true })}
+            {...register("Date of Birth", {
+              required: "Date of birth is required.",
+            })}
             type={"text"}
             name={"Date of Birth"}
-            placeholder={`ddmmyyyy`}
-            className={inputCSS}
+            placeholder={`dd/mm/yyyy`}
+            className={`${inputCSS} ${
+              errors["Date of Birth"] ? " border-red-600" : ""
+            }`}
           ></input>
+          {errors["Date of Birth"] && (
+            <p className={pErrorCSS}>{errors["Date of Birth"].message}</p>
+          )}
         </label>
         <label className={labelCSS}>
           Phone Number
           <input
-            {...register("Phone Number", { required: true })}
+            {...register("Phone Number", {
+              required: "Phone number is required.",
+            })}
             type={"tel"}
             name={"Phone Number"}
             placeholder={`876123456`}
-            className={inputCSS}
+            className={`${inputCSS} ${
+              errors["Phone Number"] ? " border-red-600" : ""
+            }`}
           ></input>
+          {errors["Phone Number"] && (
+            <p className={pErrorCSS}>{errors["Phone Number"].message}</p>
+          )}
         </label>
         <div className="flex flex-col space-y-2">
           <label>Sex</label>
