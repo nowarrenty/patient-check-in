@@ -8,6 +8,7 @@ const TopNav = ({ setFormStep, numSteps, formStep, tailwind }: TopNavProps) => {
   const router = useRouter();
   // Add one to formStep so that math functions dont use 0 for calculations
   const step = formStep + 1;
+  
   const onClick: MouseEventHandler = (e) => {
     setFormStep((step) => (step === 0 ? step : step - 1));
     if (step === 1) router.push("/");
