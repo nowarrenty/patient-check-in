@@ -9,9 +9,6 @@ const PersonalDetailsForm = ({
   setFormStep,
   numForms,
 }: FormProps) => {
-  useEffect(() => {
-    console.log(JSON.stringify(formState?.isValid));
-  }, [formState]);
   const inputCSS =
     "mt-1 text-base bg-white border border-gray-300 rounded-lg h-[50px] indent-4";
   const labelCSS = "grid text-x";

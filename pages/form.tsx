@@ -131,7 +131,6 @@ const Form: NextPage = () => {
       isValid: formStateIllness.isValid,
     },
   ];
-  console.log(formStateComplaint.isValid);
   return (
     <div className="flex flex-col mx-4 h-full">
       <TopNav

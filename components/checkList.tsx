@@ -1,8 +1,8 @@
 import Image from "next/image";
-import doneSVG from "../../public/done.svg";
+import doneSVG from "../public/done.svg";
 import { useController, Control } from "react-hook-form";
 import { useState } from "react";
-import { CheckListProps } from "../../types";
+import { CheckListProps } from "../types";
 
 const CheckList = ({
   options,

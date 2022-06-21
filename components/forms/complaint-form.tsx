@@ -1,5 +1,5 @@
 import { ComplaintProps } from "../../types";
-import { CheckList } from "./checkList";
+import { CheckList } from "../checkList";
 
 const ComplaintForm = ({
   control,
@@ -9,7 +9,6 @@ const ComplaintForm = ({
   setFormStep,
   numForms,
 }: ComplaintProps) => {
-  console.log(watch());
   return (
     <form
       id={id}
