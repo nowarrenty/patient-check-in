@@ -24,7 +24,7 @@ export default function Completed() {
           </div>
         </div>
       </div>
-      <p className="mt-5 mb-7 text-center font-semibold mx-8">{`We Will call your number when it's your turn to see the doctor`}</p>
+      <p className="mt-5 mb-7 text-center font-semibold mx-8">{`We will call your number when it's your turn to see the doctor.`}</p>
     </div>
   );
 }
