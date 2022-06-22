@@ -126,7 +126,7 @@ const Form: NextPage = () => {
       />
       {formData[formStep].form}
       <div className="flex grow"></div>
-      <div>
+      <div className="flex flex-col">
         <NextButton
           tailwind="mb-7 mt-7"
           formStep={formStep}

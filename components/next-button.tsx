@@ -29,6 +29,7 @@ const NextButton = ({
   const onClick: MouseEventHandler = (e) => {
     setFormStep((step) => (step + 1 >= numForms ? step : step + 1));
     if (formStep + 1 === numForms && isFinished) {
+      console.log("Completed form");
       router.push("/completed");
     }
   };
@@ -37,14 +38,11 @@ const NextButton = ({
       type="button"
       disabled={isNextButtonActive ? false : true}
       onClick={onClick}
-      className={`flex shrink-0 justify-center items-center ${buttonColor} h-10 
-      text-white rounded-full ml-auto px-6
+      className={`flex shrink-0 justify-center items-center font-bold ${buttonColor} h-10 
+      text-white rounded-full
       ${tailwind || ""}`}
     >
       {isFinished || formStep + 1 === numForms ? "Finish" : "Next"}
-      <div className="ml-3">
-        <Image src={doubleArrow} alt="Next double arrow" />
-      </div>
     </button>
   );
 };
