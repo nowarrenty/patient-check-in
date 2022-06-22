@@ -9,7 +9,7 @@ export function IllnessForm({
       className="flex flex-col"
     >
       <h1 className="text-3xl mt-6 font-semibold">
-        {`Do you have any of theses?`}
+        {`Do you have any of these?`}
       </h1>
       <p className="mt-6 text-xs ">Select all that apply.</p>
       <div className={`divide-y mt-10 ${tailwind}`}>
