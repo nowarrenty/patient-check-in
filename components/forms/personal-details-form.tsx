@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { FormProps } from "../../types";
 
 const PersonalDetailsForm = ({
