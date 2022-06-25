@@ -6,7 +6,7 @@ const PersonalDetailsForm = ({
 }: FormProps) => {
   const inputCSS =
     "mt-1 text-base bg-white border border-gray-300 rounded-lg h-[50px] indent-4";
-  const labelCSS = "grid text-x";
+  const labelCSS = "grid text-xs";
   const radioLabelCSS = `grid grid-cols-2 items-center bg-white border border-gray-300 rounded-lg h-12 indent-4 `;
   const radioCSS = `w-4 h-4 justify-self-end mr-4`;
   const pErrorCSS = `text-sm text-red-600`;
